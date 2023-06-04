@@ -1,0 +1,8 @@
+#File to place global loaders configurations
+
+#EXAMPLE: Global configuration of a mapper-plugin 
+# plugins:
+#   loaders:
+#   - name: target-s3
+#     variant: crowemi
+#     pip_url: git+https://github.com/crowemi/target-s3.git
