@@ -19,10 +19,12 @@ include_paths:
 #     connection_string: ${AZURE_CONN_STATE_BACKEND}
 
 #AWS state_backend
-uri: s3://incremental-insert/embulk_state
-s3:
-  aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
-  aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
+state_backend:
+  uri: s3://${AWS_KEY_ID_STATE_BACKEND}:${AWS_SECRET_STATE_BACKEND}@incremental-insert/embulk_state
+  # uri: s3://incremental-insert/embulk_state
+  # s3:
+  #   aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
+  #   aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
 
 # #GCP state_backend
 # uri: gs://<your bucket name>/<prefix for state JSON blobs>
