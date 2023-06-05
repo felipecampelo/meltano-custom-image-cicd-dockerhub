@@ -1,13 +1,14 @@
 #File to place global extractors configurations
 
-#EXAMPLE: Global configuration of a global extractor tap-postgres
-# plugins:
-#   extractors:
-#   - name: tap-postgres
-#     variant: meltanolabs
-#     pip_url: pipelinewise-tap-postgres
-#     config:
-#       host: ${VAR_IN_DB_HOST}
-#       user: ${VAR_IN_DB_USER}
-#       password: ${VAR_IN_DB_PASSWORD}
-#       dbname: ${VAR_IN_DB_NAME}
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: pipelinewise-tap-postgres
+    config:
+      host: ${INPUT_NORTHWIND_HOST}
+      user: ${INPUT_NORTHWIND_USER}
+      password: ${INPUT_NORTHWIND_PASSWORD}
+      dbname: ${INPUT_NORTHWIND_DATABASE}
+      port: ${INPUT_NORTHWIND_PORT}
+      default_replication_method: FULL_TABLE

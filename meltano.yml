@@ -4,10 +4,10 @@ version: 1
 #Uncomment the paths of files that you will use for your project
 include_paths:
   - env_config.yml
-  # - ./pipelines/**/*.yml
+  - ./pipelines/**/*.yml
   # - ./plugins/custom/custom_config.yml
-  # - ./plugins/extractors/extractors_config.yml
-  # - ./plugins/loaders/loaders_config.yml
+  - ./plugins/extractors/extractors_config.yml
+  - ./plugins/loaders/loaders_config.yml
   # - ./plugins/mappers/mappers_config.yml
 
 #This section configures the buckets to store the state files
