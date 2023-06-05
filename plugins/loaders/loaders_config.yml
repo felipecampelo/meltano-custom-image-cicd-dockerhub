@@ -10,6 +10,6 @@ plugins:
       user: ${OUTPUT_NORTHWIND_USER}
       password: ${OUTPUT_NORTHWIND_PASSWORD}
       dbname: ${OUTPUT_NORTHWIND_DATABASE}
-      port: 5432
-      default_target_schema: public
+      port: 5433
+      default_target_schema: postgres
       hard_delete: true
