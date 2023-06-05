@@ -1,0 +1,14 @@
+plugins:
+  extractors:
+  - name: tap-postgres--employee_territories
+    inherit_from: tap-postgres
+    select:
+    - public-employee_territories.*
+  loaders:
+  - name: target-postgres--employee_territories
+    inherit_from: target-postgres
+
+jobs:
+- name: employee_territories-pipeline
+  tasks:
+  - tap-postgres--employee_territories target-postgres--employee_territories

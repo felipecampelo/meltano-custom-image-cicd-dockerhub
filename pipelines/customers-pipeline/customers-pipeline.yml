@@ -1,0 +1,14 @@
+plugins:
+  extractors:
+  - name: tap-postgres--customers
+    inherit_from: tap-postgres
+    select:
+    - public-customers.*
+  loaders:
+  - name: target-postgres--customers
+    inherit_from: target-postgres
+
+jobs:
+- name: customers-pipeline
+  tasks:
+  - tap-postgres--customers target-postgres--customers

@@ -1,0 +1,14 @@
+plugins:
+  extractors:
+  - name: tap-postgres--shippers
+    inherit_from: tap-postgres
+    select:
+    - public-shippers.*
+  loaders:
+  - name: target-postgres--shippers
+    inherit_from: target-postgres
+
+jobs:
+- name: shippers-pipeline
+  tasks:
+  - tap-postgres--shippers target-postgres--shippers

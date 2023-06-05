@@ -1,0 +1,14 @@
+plugins:
+  extractors:
+  - name: tap-postgres--us_states
+    inherit_from: tap-postgres
+    select:
+    - public-us_states.*
+  loaders:
+  - name: target-postgres--us_states
+    inherit_from: target-postgres
+
+jobs:
+- name: us_states-pipeline
+  tasks:
+  - tap-postgres--us_states target-postgres--us_states

@@ -4,7 +4,6 @@ plugins:
     inherit_from: tap-postgres
     select:
     - public-orders.*
-
   loaders:
   - name: target-postgres--orders
     inherit_from: target-postgres
