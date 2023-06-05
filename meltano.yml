@@ -20,7 +20,7 @@ include_paths:
 
 #AWS state_backend
 state_backend:
-  uri: s3://${AWS_KEY_ID_STATE_BACKEND}:${AWS_SECRET_STATE_BACKEND}@incremental-insert/embulk_state
+  uri: s3://AKIAYILLZMREE7WO2GSQ:S9TkVoGQ4MKlMxvd3sqrsS85zAnz6FJkBWLkZ/zC@incremental-insert/embulk_state
   # uri: s3://incremental-insert/embulk_state
   # s3:
   #   aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
