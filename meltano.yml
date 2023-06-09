@@ -5,7 +5,7 @@ version: 1
 include_paths:
   - env_config.yml
   - ./pipelines/**/*.yml
-  - ./plugins/custom/custom_config.yml
+  # - ./plugins/custom/custom_config.yml
   - ./plugins/extractors/extractors_config.yml
   - ./plugins/loaders/loaders_config.yml
   # - ./plugins/mappers/mappers_config.yml
