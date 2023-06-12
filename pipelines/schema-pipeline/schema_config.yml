@@ -1,0 +1,13 @@
+plugins:
+  extractors:
+  - name: tap-postgres--entire
+    inherit_from: tap-postgres
+    select: []
+  loaders:
+  - name: target-postgres--entire
+    inherit_from: target-postgres
+
+jobs:
+- name: entire-pipeline
+  tasks:
+  - tap-postgres--entire target-postgres--entire
