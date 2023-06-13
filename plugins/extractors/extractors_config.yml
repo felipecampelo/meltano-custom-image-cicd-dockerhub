@@ -12,3 +12,4 @@ plugins:
       dbname: ${INPUT_NORTHWIND_DATABASE}
       port: 5432
       default_replication_method: INCREMENTAL
+      replication_key: category_id
