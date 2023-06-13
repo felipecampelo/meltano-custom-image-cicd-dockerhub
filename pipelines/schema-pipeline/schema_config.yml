@@ -6,6 +6,15 @@ plugins:
   loaders:
   - name: target-postgres--entire
     inherit_from: target-postgres
+   
+state:
+  version: 1
+  target: aws-s3
+  config:
+    bucket: incremental-insert
+    key: teste
+    aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
+    aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
 
 jobs:
 - name: entire-pipeline
