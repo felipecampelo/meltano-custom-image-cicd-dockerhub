@@ -1,6 +1,10 @@
 plugins:
   extractors:
   - name: tap-postgres--categories
+    metadata:
+      some_entity_id:
+        replication-method: INCREMENTAL
+        replication-key: category_id
     inherit_from: tap-postgres
     select:
     - public-categories.*
