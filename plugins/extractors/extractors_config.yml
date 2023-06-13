@@ -11,4 +11,4 @@ plugins:
       password: ${INPUT_NORTHWIND_PASSWORD}
       dbname: ${INPUT_NORTHWIND_DATABASE}
       port: 5432
-      replication_method: FULL_TABLE
+      default_replication_method: FULL_TABLE
