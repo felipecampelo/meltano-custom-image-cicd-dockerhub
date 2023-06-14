@@ -11,6 +11,7 @@ RUN pip install -r requirements.txt
 # Copy over Meltano project directory
 COPY . .
 RUN meltano install
+RUN ls
 
 # Allow changes to containerized project files
 ENV MELTANO_PROJECT_READONLY 0
