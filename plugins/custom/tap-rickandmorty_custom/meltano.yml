@@ -28,3 +28,18 @@ plugins:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+  - name: target-s3
+    variant: crowemi
+    pip_url: git+https://github.com/crowemi/target-s3.git
+    config:
+      cloud_provider:
+        aws:
+          aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
+          aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
+          aws_region: us-east-1
+          aws_bucket: incremental-insert
+      format:
+        format_type: json
+      prefix: tap-rickandmorty
+      append_date_to_prefix_grain: day
+      append_date_to_filename_grain: microsecond
