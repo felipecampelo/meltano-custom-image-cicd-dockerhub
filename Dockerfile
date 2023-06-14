@@ -11,8 +11,6 @@ RUN pip install -r requirements.txt
 # Copy over Meltano project directory
 COPY . .
 RUN meltano install
-RUN cd plugins/custom/tap-rickandmorty_custom
-RUN meltano install
 
 # Allow changes to containerized project files
 ENV MELTANO_PROJECT_READONLY 0
