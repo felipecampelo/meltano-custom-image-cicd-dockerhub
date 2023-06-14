@@ -1,11 +1,11 @@
 #File to place global custom plugins configurations
 
 # EXAMPLE: configuration of a custom tap named 'example'
-# plugins:
-#   extractors:
-#   - name: tap-example
-#     namespace: tap_example
-#     pip_url: ./plugins/custom/tap-example
-#     capabilities:
-#     settings:
-#     config:
+plugins:
+  extractors:
+  - name: tap-rickandmorty_custom
+    namespace: tap_rickandmorty_custom
+    pip_url: ./plugins/custom/tap-rickandmorty_custom
+    capabilities:
+    settings:
+    config:
