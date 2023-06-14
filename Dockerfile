@@ -16,3 +16,4 @@ RUN meltano install
 ENV MELTANO_PROJECT_READONLY 0
 
 ENTRYPOINT ["meltano"]
+
