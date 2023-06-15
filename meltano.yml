@@ -23,7 +23,7 @@ include_paths:
   # uri: s3://AKIAYILLZMREE7WO2GSQ:S9TkVoGQ4MKlMxvd3sqrsS85zAnz6FJkBWLkZ/zC@incremental-insert/embulk_state
 
 state_backend:
-  uri: s3://incremental-insert/meltano_state
+  uri: s3://incremental-insert/custom-tap
   s3:
     aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
     aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
