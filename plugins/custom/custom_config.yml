@@ -13,3 +13,13 @@ plugins:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+  - name: target-s3
+      variant: crowemi
+      settings:
+        aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
+        aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
+        bucket: incremental-insert
+        aws_region: us-east-1
+        file_naming_scheme: '{table_name}_{timestamp}'
+        file_type: jsonl
+        content_type: application/json-lines
