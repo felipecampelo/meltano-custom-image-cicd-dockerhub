@@ -19,7 +19,8 @@ plugins:
     config:
       cloud_provider:
         aws:
-          aws_bucket: incremental-insert/RickAndMorty
+          aws_bucket: incremental-insert
           aws_region: us-east-1
       format:
         format_type: json
+      prefix: RickAndMorty
