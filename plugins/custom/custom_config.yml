@@ -14,13 +14,12 @@ plugins:
     variant: andyh1203
     pip_url: target-jsonl
   - name: target-s3
-      variant: crowemi
-      pip_url: git+https://github.com/crowemi/target-s3.git
-      settings:
-        aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
-        aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
-        bucket: incremental-insert
-        aws_region: us-east-1
-        file_naming_scheme: '{table_name}_{timestamp}'
-        file_type: jsonl
-        content_type: application/json-lines
+    variant: crowemi
+    pip_url: git+https://github.com/crowemi/target-s3.git
+    config:
+      cloud_provider:
+        aws:
+          aws_bucket: incremental-insert
+          aws_region: us-east-1
+      format:
+        format_type: json
