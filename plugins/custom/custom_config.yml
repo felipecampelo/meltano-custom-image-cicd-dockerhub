@@ -15,6 +15,7 @@ plugins:
     pip_url: target-jsonl
   - name: target-s3
       variant: crowemi
+      pip_url: git+https://github.com/crowemi/target-s3.git
       settings:
         aws_access_key_id: ${AWS_KEY_ID_STATE_BACKEND}
         aws_secret_access_key: ${AWS_SECRET_STATE_BACKEND}
