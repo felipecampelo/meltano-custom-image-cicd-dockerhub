@@ -30,8 +30,8 @@ class Taprickandmorty_custom(Tap):
             A list of discovered streams.
         """
         return [
-            # streams.CharacterStream(self),
-            # streams.LocationStream(self),
+            streams.CharacterStream(self),
+            streams.LocationStream(self),
             streams.EpisodeStream(self),
         ]
 
