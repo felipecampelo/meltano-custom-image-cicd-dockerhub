@@ -19,10 +19,9 @@ class CharacterStream(rickandmorty_customStream):
     path = "/character"
     primary_keys = ["id"]
     replication_key = None
-    # Optionally, you may also use `schema_filepath` in place of `schema`:
-    # schema_filepath = SCHEMAS_DIR / "users.json"  # noqa: ERA001
+    records_jsonpath = "$.results.[*]"
+
     schema = th.PropertiesList(
-        th.Property("results", th.ArrayType(th.ObjectType(
             th.Property("id", th.IntegerType),
             th.Property("name", th.StringType),
             th.Property("status", th.StringType),
@@ -41,7 +40,6 @@ class CharacterStream(rickandmorty_customStream):
             th.Property("episode", th.ArrayType(th.StringType)),
             th.Property("url", th.StringType),
             th.Property("created", th.StringType),
-        ))),
     ).to_dict()
 
     # Testando parent-child com episode
@@ -62,6 +60,7 @@ class CharacterStream(rickandmorty_customStream):
         
         return None
     
+    # Testando filtro de parâmetros
     # def get_url_params(self, context: dict | None, next_page_token: Any | None) -> dict[str, Any]:
     #     params = {}
 
@@ -80,8 +79,9 @@ class LocationStream(rickandmorty_customStream):
     path = "/location"
     primary_keys = ["id"]
     replication_key = None
+    records_jsonpath = "$.results.[*]"
+
     schema = th.PropertiesList(
-            th.Property("results", th.ArrayType(th.ObjectType(
                 th.Property("id", th.IntegerType),
                 th.Property("name", th.StringType),
                 th.Property("type", th.StringType),
@@ -89,7 +89,6 @@ class LocationStream(rickandmorty_customStream):
                 th.Property("residents", th.ArrayType(th.StringType)),
                 th.Property("url", th.StringType),
                 th.Property("created", th.StringType),
-        ))),
     ).to_dict()
 
 class EpisodeStream(rickandmorty_customStream):
@@ -101,10 +100,11 @@ class EpisodeStream(rickandmorty_customStream):
 
     name = "episode"
     path = "/episode"
-    primary_keys = None # ["id"]
+    primary_keys = ["id"]
     replication_key = None
+    records_jsonpath = "$.results.[*]"
+
     schema = th.PropertiesList(
-        th.Property("results", th.ArrayType(th.ObjectType(
             th.Property("id", th.IntegerType),
             th.Property("name", th.StringType),
             th.Property("air_date", th.StringType),
@@ -112,6 +112,5 @@ class EpisodeStream(rickandmorty_customStream):
             th.Property("characters", th.ArrayType(th.StringType)),
             th.Property("url", th.StringType),
             th.Property("created", th.StringType),
-        ))),
     ).to_dict()
     
