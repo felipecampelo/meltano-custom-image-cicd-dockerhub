@@ -55,7 +55,7 @@ class CharacterStream(rickandmorty_customStream):
         else:
             return None
 
-        if int(next_page_token) <= 5:
+        if int(next_page_token) <= int(response.json()['info']['pages']):
             return next_page_token
         
         return None
@@ -91,6 +91,20 @@ class LocationStream(rickandmorty_customStream):
                 th.Property("created", th.StringType),
     ).to_dict()
 
+    def get_next_page_token(self, response: requests.Response, previous_token: Any | None) -> Any | None:
+        next = response.json()['info']['next']
+
+        if next != None:
+            next_page = next.split("/")[4]
+            next_page_token = next_page.split("=")[1]
+        else:
+            return None
+
+        if int(next_page_token) <= int(response.json()['info']['pages']):
+            return next_page_token
+        
+        return None
+
 class EpisodeStream(rickandmorty_customStream):
     """Define custom stream."""
 
@@ -113,4 +127,18 @@ class EpisodeStream(rickandmorty_customStream):
             th.Property("url", th.StringType),
             th.Property("created", th.StringType),
     ).to_dict()
+
+    def get_next_page_token(self, response: requests.Response, previous_token: Any | None) -> Any | None:
+        next = response.json()['info']['next']
+
+        if next != None:
+            next_page = next.split("/")[4]
+            next_page_token = next_page.split("=")[1]
+        else:
+            return None
+
+        if int(next_page_token) <= int(response.json()['info']['pages']):
+            return next_page_token
+        
+        return None
     
