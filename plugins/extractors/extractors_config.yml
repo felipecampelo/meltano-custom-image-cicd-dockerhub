@@ -12,15 +12,14 @@ plugins:
       dbname: ${INPUT_NORTHWIND_DATABASE}
       port: 5432
       default_replication_method: FULL_TABLE
-  
   - name: tap-spreadsheets-anywhere
     variant: ets
     pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
     config:
       tables:
-      - path: s3://incremental-insert/RickAndMorty/character/2023/06/20/test.json
+      - path: s3://incremental-insert
         format: json
-        key_properties: [id]
-        name: test
+        key_properties: ["id"]
         start_date: '2020-01-01T00:00:00Z'
-        pattern: "*.json"
+        name: TABLE_NAME
+        pattern: RickAndMorty/TABLE_NAME/YEAR/MONTH/DAY/YEARMONTHDAY.json.gz
