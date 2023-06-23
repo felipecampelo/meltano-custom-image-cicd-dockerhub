@@ -9,7 +9,8 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 RUN apt-get update && \
-    apt-get install -y curl
+    apt-get install -y curl && \
+    apt-get install -y unzip
 
 # Install aws-cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&\
