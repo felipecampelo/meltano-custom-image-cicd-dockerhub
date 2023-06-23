@@ -8,6 +8,18 @@ WORKDIR /project
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+# Install aws-cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&\
+    unzip awscliv2.zip &&\
+    sudo ./aws/install
+
+# aws-cli configuration
+RUN aws configure
+RUN ${AWS_ACCESS_KEY}
+RUN ${AWS_SECRET_ACCESS_KEY}
+RUN
+RUN
+
 # Copy over Meltano project directory
 COPY . .
 RUN meltano install
