@@ -20,6 +20,6 @@ plugins:
       - path: s3://incremental-insert
         format: json
         key_properties: ["id"]
-        start_date: '2020-01-01T00:00:00Z'
         name: ${TABLE_NAME}
         pattern: ${PATTERN_PATH}
+        start_date: '2020-01-01T00:00:00Z'
