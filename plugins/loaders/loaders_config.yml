@@ -7,7 +7,7 @@ plugins:
     pip_url: pipelinewise-target-postgres
     config:
       host: ${OUTPUT_HOST}
-      user: ${OUTPUT_HOST_USER}
+      user: ${OUTPUT_USER}
       password: ${OUTPUT_PASSWORD}
       dbname: ${OUTPUT_DATABASE}
       port: 5435
