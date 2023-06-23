@@ -13,12 +13,10 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     unzip awscliv2.zip &&\
     sudo ./aws/install
 
-# aws-cli configuration
-RUN aws configure
-RUN ${AWS_ACCESS_KEY}
-RUN ${AWS_SECRET_ACCESS_KEY}
-RUN
-RUN
+# AWS CLI credentials configuration
+RUN aws configure set aws_access_key_id ${AWS_ACCESS_KEY} && \
+    aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY} && \
+    aws configure set default.region ${DEFAULT_REGION}
 
 # Copy over Meltano project directory
 COPY . .
