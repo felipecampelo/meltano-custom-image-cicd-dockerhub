@@ -10,13 +10,8 @@ jobs:
     runs-on: meltano/meltano:v2.19.1-python3.8
 
     steps:
-    # - name: Checkout o código
-    #   uses: actions/checkout@v2
-
-    # - name: Configurar Python
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: 3.x
+    - name: Checkout Code
+      uses: actions/checkout@v2
 
     - name: CI Meltano Install
       run: |
