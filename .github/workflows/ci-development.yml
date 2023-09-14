@@ -42,4 +42,7 @@ jobs:
           
       - name: Meltano Install
         run: meltano install
-      
+        
+      - name: Build and publish Docker image
+        run: docker build -t meltano_test .
+        
