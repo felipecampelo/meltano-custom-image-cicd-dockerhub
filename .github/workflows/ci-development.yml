@@ -38,7 +38,7 @@ jobs:
           python-version: 3.8
 
       - name: Pip Install Meltano
-        run: pip install meltano
+        run: pip install meltano==2.19.1
           
       - name: Meltano Install
         run: meltano install
