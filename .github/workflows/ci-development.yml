@@ -27,11 +27,19 @@ on:
 jobs:
   meltano_ci:
     name: Meltano CI
-    runs-on: meltano/meltano:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      
-      - name: Extract metadata (tags, labels) for Docker
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Pip Install Meltano
+        run: pip install meltano
+          
+      - name: Meltano Install
         run: meltano install
       
