@@ -1,0 +1,23 @@
+name: Meltano Install CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: meltano/meltano:v2.19.1-python3.8
+
+    steps:
+    # - name: Checkout o código
+    #   uses: actions/checkout@v2
+
+    # - name: Configurar Python
+    #   uses: actions/setup-python@v2
+    #   with:
+    #     python-version: 3.x
+
+    - name: CI Meltano Install
+      run: |
+        meltano install
