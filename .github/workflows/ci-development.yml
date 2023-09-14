@@ -27,7 +27,7 @@ on:
 jobs:
   meltano_ci:
     name: Meltano CI
-    runs-on: ubuntu-latest
+    runs-on: meltano/meltano:latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
