@@ -1,3 +1,22 @@
+# name: Meltano Install CI
+
+# on:
+#   pull_request:
+#     branches:
+#       - latest
+
+# jobs:
+#   build:
+#     runs-on: meltano/meltano:v2.19.1-python3.8
+
+#     steps:
+#     - name: Checkout Code
+#       uses: actions/checkout@v2
+
+#     - name: CI Meltano Install
+#       run: |
+#         meltano install
+
 name: Meltano Install CI
 
 on:
@@ -6,13 +25,24 @@ on:
       - latest
 
 jobs:
-  build:
-    runs-on: meltano/meltano:v2.19.1-python3.8
-
+  meltano_ci:
+    name: Meltano CI
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
+      - name: Check out the repo
+        uses: actions/checkout@v3
 
-    - name: CI Meltano Install
-      run: |
-        meltano install
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Pip Install Meltano
+        run: pip install meltano==2.19.1
+          
+      - name: Meltano Install
+        run: meltano install
+        
+      - name: Build Docker Image
+        run: docker build -t meltano_test .
+        
